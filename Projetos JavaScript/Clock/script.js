@@ -1,0 +1,18 @@
+function updateClock() {
+    const now = new Date();
+    
+    // Formata a hora
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    
+    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+
+    // Formata a data
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('date').textContent = now.toLocaleDateString('pt-BR', options);
+}
+
+// Atualiza a cada segundo
+setInterval(updateClock, 1000);
+updateClock(); // Chama imediatamente
